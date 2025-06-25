@@ -51,7 +51,7 @@
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
                     <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <p>加载过慢请开启缓存喵 浏览器默认开启</p>
                     <img src="/images/loading.gif" />
                 </div>
             </div>
@@ -188,6 +188,42 @@
         </div>
         
     </div>
+    <!-- Live2D 实现 -->
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+<script>
+// 可选模型列表
+const models = [
+  'shizuku',
+];
+
+// live 2d
+// 随机选择一个模型
+const selectedModel = models[Math.floor(Math.random() * models.length)];
+
+L2Dwidget.init({
+  model: {
+    jsonPath: `https://cdn.jsdelivr.net/npm/live2d-widget-model-${selectedModel}@1.0.5/assets/${selectedModel}.model.json`
+  },
+  display: {
+    position: 'right',
+    width: 200,
+    height: 250,
+    hOffset: 0,
+    vOffset: 10
+  },
+  mobile: {
+    show: true,
+    scale: 0.8
+  },
+  dialog: {
+    enable: true,
+    script: {
+      'tap body': '哎呀！别碰我！',
+      'tap face': '人家在认真学习呢~'
+    }
+  }
+});
+</script>
 </footer>
 
         </div>
@@ -201,5 +237,8 @@
     </div>
     <script src="/js/main.js"></script>
     
+
+  <script src="/js/sakura.js"></script>
+
 </body>
 </html>
